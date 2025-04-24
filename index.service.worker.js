@@ -4,7 +4,7 @@
 // Incrementing CACHE_VERSION will kick off the install event and force
 // previously cached resources to be updated from the network.
 /** @type {string} */
-const CACHE_VERSION = '1745442056|224450051';
+const CACHE_VERSION = '1745454944|20120849';
 /** @type {string} */
 const CACHE_PREFIX = 'CrazyCattle3D-sw-cache-';
 const CACHE_NAME = CACHE_PREFIX + CACHE_VERSION;
