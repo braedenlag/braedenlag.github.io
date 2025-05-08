@@ -103,7 +103,9 @@ body {
 		<noscript>
 			Your browser does not support JavaScript.
 		</noscript>
-
+		<script>
+			window.onbeforeunload=function(){return"";}
+		</script>
 		<div id="status">
 			<img id="status-splash" class="show-image--true fullsize--true use-filter--true" src="index.png" alt="">
 			<progress id="status-progress"></progress>
