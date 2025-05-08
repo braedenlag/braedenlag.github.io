@@ -27,6 +27,14 @@
         var win = window.open("about:blank", '_blank', 'location=yes')
         win.document.write(document.getElementById("content").innerHTML)
         win.focus();
-        window.close()
+        function onBeforeUnload(e) {
+            e.preventDefault();
+            e.returnValue = '';
+            return;
+
+            delete e['returnValue'];
+        }
+
+        window.addEventListener('beforeunload', onBeforeUnload);
     </script>
 </html>
