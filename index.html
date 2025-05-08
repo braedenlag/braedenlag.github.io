@@ -104,11 +104,7 @@ body {
 			Your browser does not support JavaScript.
 		</noscript>
 		<script>
-			addEventListener("beforeunload", (event) => { })
-
-			onbeforeunload = (event) => { 
-				event.preventDefault();
-			}
+			window.onbeforeunload = ()=>{return false;}
 		</script>
 		<div id="status">
 			<img id="status-splash" class="show-image--true fullsize--true use-filter--true" src="index.png" alt="">
