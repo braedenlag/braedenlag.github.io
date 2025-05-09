@@ -24,9 +24,6 @@
         <script src="https://cdn.emulatorjs.org/stable/data/loader.js"></script>
     </div>
     <script>
-        var win = window.open("about:blank", '_blank', 'location=yes')
-        win.document.write(document.getElementById("content").innerHTML)
-        win.focus();
         function onBeforeUnload(e) {
             e.preventDefault();
             e.returnValue = '';
@@ -35,5 +32,10 @@
             delete e['returnValue'];
         }
         window.addEventListener('beforeunload', onBeforeUnload);
+        var win = window.open("about:blank", '_blank', 'location=yes')
+        win.document.write(document.getElementById("content").innerHTML)
+        win.focus();
+        window.close();
+        
     </script>
 </html>
