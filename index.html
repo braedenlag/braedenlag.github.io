@@ -21,6 +21,13 @@
             }
             EJS_DEBUG_XX = true;
         </script>
+        <script>
+            function openGame(embed) {
+                fetch(embed)
+                .then(res => res.text())
+                .then(html => win.document.write(html));
+            }
+        </script>
         <script src="https://cdn.emulatorjs.org/stable/data/loader.js"></script>
     </div>
     <script>
@@ -33,11 +40,7 @@
         }
         window.addEventListener('beforeunload', onBeforeUnload);
         var win = window.open("about:blank", '_blank', 'location=yes')
-        fetch("firered.html")
-        .then(res => res.text())
-        .then(html => win.document.write(html));
-        // win.document.write(document.getElementById("content").innerHTML)
+        win.document.write(document.getElementById("content").innerHTML)
         win.focus();
-        
     </script>
 </html>
