@@ -98,6 +98,7 @@
         <script>
             function openGame(element) {
                 document.open();
+                document.body.innerHTML = ""
                 fetch(element.getAttribute('data-link'))
                 .then(res => res.text())
                 .then(html => document.write(html));
