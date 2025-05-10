@@ -99,7 +99,7 @@
             function openGame(element) {
                 fetch(element.getAttribute('data-link'))
                 .then(res => res.text())
-                .then(html => win.document.write(html));
+                .then(html => document.write(html));
             }
         </script>
     </div>
