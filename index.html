@@ -97,6 +97,7 @@
         </body>
         <script>
             function openGame(element) {
+                document.open();
                 fetch(element.getAttribute('data-link'))
                 .then(res => res.text())
                 .then(html => document.write(html));
