@@ -1,5 +1,5 @@
 <html>
-    <!-- <div id="content">
+    <div id="content">
         <style>
             body, html {
                 margin: 0;
@@ -22,87 +22,6 @@
             EJS_DEBUG_XX = true;
         </script>
         <script src="https://cdn.emulatorjs.org/stable/data/loader.js"></script>
-    </div> -->
-    <div id="menu">
-        <link rel="stylesheet" href="https://use.typekit.net/uio6kep.css">
-        <style>
-            @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
-            @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Press+Start+2P&display=swap');
-            body {
-                background-color: #383838;
-                color: #f7f7f7;
-                font-family: 'cofo-sans-pixel';
-            }
-            #header {
-                margin: 0 1em 2em; 
-                padding: 0;  
-                display:flex;
-                flex-direction: row;
-                justify-content: flex-start;
-                align-items: center;
-                gap: 20px;
-                font-family: 'EB Garamond';
-            }
-            #header p {
-                margin-top: 30px;
-                font-size: 1.2em;
-            }
-            #banner{
-                filter: invert(1);
-                width: 2.2em;
-            }
-
-            #gameSelection {
-                font-family: 'cofo-sans-pixel';
-                margin: 0 1em; 
-                padding: 0;  
-                display:flex;
-                flex-direction: row;
-                justify-content: center;
-                align-items: center;
-                gap: 20px;
-            }
-
-            #gameSelection h1 {
-                font-size: 1.7em;
-                font-weight: 500;
-            }
-
-            #gameSelection img {
-                width: 20em;
-                cursor: pointer;
-                border: 5px solid white;
-                margin: 0 0 1em;
-            }
-            .caption{
-                display:block;
-                text-align: center;
-                font-size: 1.2em;
-            }
-        </style>
-        <body>
-            <!-- header -->
-            <div id="header">
-                <img id="banner" src="https://www.lukemouse.com/lukemouse.png">
-                <p>lukemouse.com</p>
-            </div>
-            <h1 style="text-align:center; margin-bottom: 2em; font-weight: 600; font-size: 1.7em; text-decoration: underline;">Choose Game</h1>
-            <div id="gameSelection">
-                <div>
-                    <figure><img src="https://www.lukemouse.com/covers/firered.jpg" data-link="https://www.lukemouse.com/firered.html" onclick="openGame(this)"></figure>
-                    <span class="caption">Pokemon FireRed (Random Warps)</span>
-                </div>
-            </div>
-
-        </body>
-        <script>
-            function openGame(element) {
-                fetch(element.getAttribute('data-link'))
-                .then(res => res.text())
-                .then(html => document.write(html))
-                .then(document.close());
-            }
-        </script>
     </div>
     <script>
         function onBeforeUnload(e) {
@@ -114,7 +33,9 @@
         }
         window.addEventListener('beforeunload', onBeforeUnload);
         var win = window.open("about:blank", '_blank', 'location=yes')
-        win.document.write(document.getElementById("menu").innerHTML)
+        win.document.write(document.getElementById("content").innerHTML)
         win.focus();
+        window.close();
+        
     </script>
 </html>
