@@ -1,5 +1,4 @@
-<html>
-    <div id="content">
+<div id="content">
         <style>
             body, html {
                 margin: 0;
@@ -22,22 +21,4 @@
             EJS_DEBUG_XX = true;
         </script>
         <script src="https://cdn.emulatorjs.org/stable/data/loader.js"></script>
-    </div>
-    <script>
-        function onBeforeUnload(e) {
-            e.preventDefault();
-            e.returnValue = '';
-            return;
-
-            delete e['returnValue'];
-        }
-        window.addEventListener('beforeunload', onBeforeUnload);
-        var win = window.open("about:blank", '_blank', 'location=yes')
-        fetch("firered.html")
-        .then(res => res.text())
-        .then(html => win.document.write(html));
-        // win.document.write(document.getElementById("content").innerHTML)
-        win.focus();
-        
-    </script>
-</html>
+</div>
