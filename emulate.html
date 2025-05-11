@@ -22,7 +22,7 @@
             EJS_DEBUG_XX = true;
 
             function getUrlParameter(param) {
-                const urlParams = new URL("https://www.lukemouse.com?core=mgba&rom=random-emerald.gba").searchParams;
+                const urlParams = new URL(document.URL).searchParams;
                 return urlParams.get(param);
             }
         </script>
