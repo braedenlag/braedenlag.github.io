@@ -126,7 +126,7 @@
                     }
                 }
                 function launchGame(rom) {
-                    document.write(`<iframe src='https://www.lukemouse.com/emulate?core=${matchRomToCore(getRomType(rom))}&rom=${rom}' width='100%' height='100%' frameborder='0' style='position:absolute; top: 0; left: 0;'>`)
+                   window.location.href= `https://www.lukemouse.com/emulate?core=${matchRomToCore(getRomType(rom))}&rom=${rom}`;
                 }
             </script>
         </div>
