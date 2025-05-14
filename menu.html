@@ -31,12 +31,10 @@
                         appearance: none;
                         background-color: #3d3d3d;
                         border: none;
-                        padding: 0 1em 0 0;
                         margin: auto;
                         font-family: inherit;
                         font-size: 1.2em;
                         line-height: inherit;
-                        background: rgb(70, 70, 70);
                         color:white;
                         padding: 1em 2.5em;
                         background-image: url("data:image/svg+xml;utf8,<svg fill='white' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
@@ -53,7 +51,7 @@
                     option:nth-of-type(odd) {
                         background-color: #3a3a3a;
                     }
-                    #launch {
+                    button {
                         background: #2979e2;
                         font-family: inherit;
                         color:white;
@@ -62,10 +60,13 @@
                         margin-top: 2em;
                         padding: 0.5em 2em;
                         text-align: center;
+                    }
+
+                    #launch {
                         width: 30em;
                     }
 
-                    #launch:hover{
+                    button:hover{
                         cursor: pointer;
                         background: #1c549e;
                     }
@@ -88,7 +89,7 @@
                     #crazycattle {
                         width: 30em;
                         cursor: pointer;
-                        margin-top: 5em;
+                        margin-top: 3em;
                         border: 5px dotted white;
                         padding: 0.5em;
                         border-radius: 5px;
@@ -101,12 +102,25 @@
                     50% {filter: opacity(0.4);}
                     100% {filter: opacity(1);}
                     }
+                    input[type=url] {
+                        width: 20em;
+                        appearance: none;
+                        background-color: #3d3d3d;
+                        border: none;
+                        margin-right: 2em;
+                        font-family: inherit;
+                        font-size: 1.2em;
+                        line-height: inherit;
+                        color:white;
+                        padding: 1em 1em;
+                        margin-top: 2em;
+                    }
             </style>
     </head>
     <body>
         <div id="content">
             <img src="https://www.lukemouse.com/lukemouse.png" draggable="false" id="background">
-            <h1 style="margin-bottom:2em;">Choose Game</h1>
+            <h1 style="margin-bottom:1em;">Choose Game</h1>
             <div class="center">
                 <div class="center"><img src="https://www.lukemouse.com/gba.png" draggable="false" width="40" id="console"><select name="game" id="chosenGame">
                     <option value="random-firered.gba">Pokemon FireRed (Randomized Warps)</option>
@@ -115,18 +129,33 @@
                     <option value="mages.nes">Micro Mages</option>
                     <option value="drmariotetris.sfc">Dr. Mario & Tetris</option>
                     <option value="doctor.z64">Doctor Mario 64</option>
-                    <option value="smashremix.z64">Super Smash Bros. 64 Remix</option>
+                    <option value="ocarina.z64">The Legend of Zelda: Ocarina of Time</option>
+                    <option value="majora.z64">The Legend of Zelda: Majora's Mask</option>
+                    <option value="supersmash.z64">Super Smash Bros. 64</option>
+                    <option value="smashremix.z64">Super Smash Bros. 64 (Remix)</option>
                     <option value="peggle.nds">Peggle: Dual Shot</option>
+                    <option value="puyopuy2.zip">Puyo Puyo 2</option>
+                    <option value="mvsc.zip">Marvel Vs. Capcom</option>
+                    <option value="spnchout.zip">Super Punch-Out!</option>
                 </select>
                 </div>
                 <div class="linebreak"></div>
                 <button id='launch' onclick="launchGame(document.getElementById('chosenGame').value)">Launch Game</button>
                 <div class="linebreak"></div>
                 <a href="https://www.lukemouse.com/cattle"><img src="cattle.png" id="crazycattle"></a>
+                <div class="linebreak"></div>
+                <input type="url" value="https://" id="urlSelector"><button onclick="changeUrl()">Visit URL</button>
             </div>
             <script>
+                function changeUrl() {
+                    if(document.getElementById("urlSelector").value.indexOf("https://") == -1) {
+                        window.location.href = "https://" + document.getElementById("urlSelector").value;
+                    } else {
+                        window.location.href = document.getElementById("urlSelector").value;
+                    }
+                }
                 document.getElementById("chosenGame").addEventListener('change',function() {
-                    document.getElementById("console").src = "https://www.lukemouse.com/" + (getRomType() + ".png")
+                    document.getElementById("console").src = (getRomType() + ".png")
                 });
 
                 function getRomType() {
@@ -150,10 +179,14 @@
                             break;
                         case "sfc":
                             return "snes9x"
+                            break;
+                        case "zip":
+                            return "fbneo";
+                            break;
                     }
                 }
                 function launchGame(rom) {
-                   window.location.href= `https://www.lukemouse.com/emulate?core=${matchRomToCore(getRomType(rom))}&rom=${rom}`;
+                   window.location.href= `emulate?core=${matchRomToCore(getRomType(rom))}&rom=${rom}`;
                 }
             </script>
         </div>
