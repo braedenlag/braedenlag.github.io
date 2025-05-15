@@ -61,11 +61,9 @@
                         padding: 0.5em 2em;
                         text-align: center;
                     }
-
                     #launch {
                         width: 30em;
                     }
-
                     button:hover{
                         cursor: pointer;
                         background: #1c549e;
@@ -73,12 +71,10 @@
                     .linebreak {
                         flex: 0 0 100%;
                     }
-
                     #console {
                         position:absolute;
                         left: 0.3em;
                     }
-
                     #background {
                         position:fixed;
                         top: -100;
@@ -86,15 +82,16 @@
                         height: 120%;
                         filter: invert(1) opacity(0.1)
                     }
-                    #crazycattle {
-                        width: 30em;
+                    .webgame {
+                        width: 20em;
                         cursor: pointer;
                         margin-top: 3em;
+                        margin-right: 1em;
                         border: 5px dotted white;
                         padding: 0.5em;
                         border-radius: 5px;
                     }
-                    #crazycattle:hover {
+                    .webgame:hover {
                         filter: brightness(0.7)
                     }
                     @keyframes blink {
@@ -143,9 +140,9 @@
                 <div class="linebreak"></div>
                 <button id='launch' onclick="launchGame(document.getElementById('chosenGame').value)">Launch Game</button>
                 <div class="linebreak"></div>
-                <a href="https://www.lukemouse.com/cattle"><img src="cattle.png" id="crazycattle"></a>
+                <a href="https://www.lukemouse.com/cattle"><img src="cattle.png" class="webgame"></a><a href="https://www.lukemouse.com/supermario64"><img src="mario.png" class="webgame"></a>
                 <div class="linebreak"></div>
-                <input type="url" value="https://" id="urlSelector"><button onclick="changeUrl()">Visit URL</button>
+                <!-- <input type="url" value="https://" id="urlSelector"><button onclick="changeUrl()">Visit URL</button> -->
             </div>
             <script>
                 function changeUrl() {
@@ -155,6 +152,7 @@
                         window.location.href = document.getElementById("urlSelector").value;
                     }
                 }
+
                 document.getElementById("chosenGame").addEventListener('change',function() {
                     document.getElementById("console").src = (getRomType() + ".png")
                 });
@@ -186,6 +184,7 @@
                             break;
                     }
                 }
+
                 function launchGame(rom) {
                    window.location.href= `emulate?core=${matchRomToCore(getRomType(rom))}&rom=${rom}`;
                 }
