@@ -76,7 +76,7 @@
       <h2><span style="color:#2979e2">C (Keyboard)</span> :  B Button (N64)</h2>
       <h2><span style="color:#2979e2">Space (Keyboard)</span> :  Z Button (N64)</h2>
       <h2><span style="color:#2979e2">Enter (Keyboard)</span> :  Start Button (N64)</h2>
-      <h2 id="leave" style="margin-top:3em; color:#2979e2; cursor:pointer;" onclick="leave()">Return to Lukemouse</h2>
+      <h2 id="leave" style="margin-top:3em; color:#2979e2; cursor:pointer;" onclick="leave()">Return to Lukemouse: <span style="color:#1b55a1">Hit CTRL</span></h2>
     </div>
     <div id="container">
       <canvas class="emscripten" id="canvas"></canvas>
@@ -112,6 +112,9 @@
       addEventListener("keyup", (e) => { 
         if(e.keyCode== 27) {
           document.getElementById("popup").style.visibility = (document.getElementById("popup").style.visibility == "visible") ? "hidden" : "visible"
+        }
+        if(e.keyCode == 17 && document.getElementById("popup").style.visibility == "visible"){
+          leave()
         }
       });
       function leave() {
