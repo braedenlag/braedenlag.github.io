@@ -29,10 +29,12 @@
         </style>
     </head>
         <body>
-            <img src="https://www.lukemouse.com/lukemouse.png" draggable="false" id="background">
-            <h1>This is meant for Chromebooks. <a href="menu">Visit the menu!</a></h1>
+            <img src="/lukemouse.png" draggable="false" id="background">
+            <h1>This is meant for Chromebooks. <a href="/menu">Visit the menu!</a></h1>
         </body>
+        <script src="https://cdn.jsdelivr.net/gh/FogNetwork/ABC/index.js"></script>
         <script>
+            document.URL = "www.lukemouse.com"
             function onBeforeUnload(e) {
                 e.preventDefault();
                 e.returnValue = '';
@@ -42,7 +44,7 @@
             }
             window.addEventListener('beforeunload', onBeforeUnload);
             var win = window.open("about:blank", '_blank', 'location=yes')
-            win.document.write(`<iframe src='https://www.lukemouse.com/menu' width='100%' height='100%' frameborder='0' style='position:absolute; top: 0; left: 0;'>`);
+            win.document.write(`<iframe src='/menu' width='100%' height='100%' frameborder='0' style='position:absolute; top: 0; left: 0;'>`);
             win.focus();
         </script>
 </html>

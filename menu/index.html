@@ -116,15 +116,15 @@
     </head>
     <body>
         <div id="content">
-            <img src="https://www.lukemouse.com/lukemouse.png" draggable="false" id="background">
+            <img src="/lukemouse.png" draggable="false" id="background">
             <h1 style="margin-bottom:1em;">Choose Game</h1>
             <div class="center">
-                <div class="center"><img src="https://www.lukemouse.com/gba.png" draggable="false" width="40" id="console"><select name="game" id="chosenGame">
+                <div class="center"><img src="gba.png" draggable="false" width="40" id="console"><select name="game" id="chosenGame">
                     <option value="random-firered.gba">Pokemon FireRed (Randomized Warps)</option>
-                    <option value="warioland.gba">Wario Land 4</option>
                     <option value="rheaven.gba">Rhythm Heaven GBA</option>
                     <option value="link.gbc">Link's Awakening DX</option>
                     <option value="grimace.gbc">Grimace's Birthday Bash</option>
+                    <option value="hockey.nes">Ice Hockey</option>
                     <option value="mages.nes">Micro Mages</option>
                     <option value="puyo2.sfc">Puyo Puyo 2</option>
                     <option value="doctor.z64">Dr. Mario 64</option>
@@ -140,9 +140,8 @@
                 <div class="linebreak"></div>
                 <button id='launch' onclick="launchGame(document.getElementById('chosenGame').value)">Launch Game</button>
                 <div class="linebreak"></div>
-                <a href="https://www.lukemouse.com/cattle"><img src="cattle.png" class="webgame"></a><a href="https://www.lukemouse.com/supermario64"><img src="mario.png" class="webgame"></a>
+                <a href="/cattle"><img src="cattle.png" class="webgame"></a><a href="/supermario64"><img src="mario.png" class="webgame"></a>
                 <div class="linebreak"></div>
-                <!-- <input type="url" value="https://" id="urlSelector"><button onclick="changeUrl()">Visit URL</button> -->
             </div>
             <script>
                 function changeUrl() {
@@ -186,7 +185,7 @@
                 }
 
                 function launchGame(rom) {
-                   window.location.href= `emulate?core=${matchRomToCore(getRomType(rom))}&rom=${rom}`;
+                   window.location.href= `/emulate?core=${matchRomToCore(getRomType(rom))}&rom=${rom}`;
                 }
             </script>
         </div>

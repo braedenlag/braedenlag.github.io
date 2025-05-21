@@ -14,7 +14,7 @@
             EJS_player = "#game";
             EJS_core = getUrlParameter("core")
             EJS_pathtodata = "https://cdn.emulatorjs.org/latest/data/";
-            EJS_gameUrl = `emerald/${getUrlParameter("rom")}`;
+            EJS_gameUrl = `roms/${getUrlParameter("rom")}`;
             EJS_defaultOptions = {
              'save-state-slot': 1,
              'save-state-location': 'browser'
@@ -25,7 +25,7 @@
                 exitEmulation: {
                     displayName: "Return To Lukemouse",
                     callback: () =>  {
-                        window.location.href='https://www.lukemouse.com/menu'
+                        window.location.href='../menu'
                     }
                 }
             }
